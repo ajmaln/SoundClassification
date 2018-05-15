@@ -11,7 +11,7 @@ from keras import backend as K
 
 K.set_image_dim_ordering('th')
 
-from keras.utils git import np_utils
+from keras.utils import np_utils
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation, Flatten
 from keras.layers.convolutional import Convolution2D, MaxPooling2D

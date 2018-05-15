@@ -17,7 +17,7 @@ xTrain, yTrain = self.TrainingDataFromDir()
 img_rows = 129
 img_cols = 178
 num_channel = 1
-num_epoch = 20
+num_epoch = 10
 
 # Define the number of classes
 num_classes = 2

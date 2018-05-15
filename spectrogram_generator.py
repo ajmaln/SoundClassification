@@ -26,7 +26,8 @@ import scipy.signal as signal
 import os
 # plt.plot(1)
 
-class Loop():
+
+class Loop:
 
     def __init__(self):
         self.frameSize = 8000
@@ -114,41 +115,6 @@ class Loop():
         yTrain = np.concatenate((yt, ys), axis=0)
         return xTrain, yTrain
 
-    # def TrainingDataFromWav(self, fileName, yClass):
-    #     #Speech data
-    #     self.sound, self.fs = librosa.load(fileName, sr=8000)
-    #     self.f, self.t, self.sxx = signal.spectrogram(self.sound, fs = 8000)
-    #     self.frameCount = int(round(self.sxx.shape[1] / 178.0))
-    #     self.trainX = np.zeros((self.frameCount, 129, 178))
-    #     self.trainY = np.zeros((self.frameCount, 2))
-    #     for k in range(self.frameCount):
-    #         self.trainX[k,:,:] = self.sxx[:, k * 178 : 178 * (k + 1)]
-    #         # self.trainX[k, :, :, 1] = librosa.feature.delta(self.trainX[k,:,:,0])
-    #         self.trainY[k,:] = yClass
-    #     return self.trainX, self.trainY
-    #     # self.trainX = self.sxx.reshape(self.frameCount, 129, 178)
-    # #     'sound_data/the_prophet.wav'
-    #
-    # def TrainingData(self):
-    #     x1, y1 = self.TrainingDataFromWav('sound_data/the_prophet.wav', [1,0])
-    #     print 'read prophet'
-    #     x0, y0 = self.TrainingDataFromWav('sound_data/flute.mp3', [0, 1])
-    #     self.trainX = np.zeros((100, 129, 178))
-    #     self.trainY = np.zeros((100, 2))
-    #     for k in range(50):
-    #         print k
-    #         self.trainX[2 * k, :, :] = x1[k, :,:]
-    #         self.trainY[2 * k, :] = y1[k, :]
-    #         self.trainX[(2 * k) + 1, :, :] = x0[k, :, :]
-    #         self.trainY[(2 * k) + 1, :] = y0[k, :]
-    #
-    # def PlotF(self, index = -1):
-    #     self.f, self.t, self.sxx = signal.spectrogram(self.window.flatten(), fs=8000)
-    #     plt.clf()
-    #     # plt.imshow(self.sxx)
-    #     plt.plot(self.f, self.sxx[:, index])
-    #     # print
-
     def Sp(self):
         self.runCommand = 0
         # time.sleep(0.1)
@@ -165,49 +131,6 @@ class Loop():
         self.xForPredict[0,:,:,0] = self.sxx
         return self.xForPredict
 
+
 if __name__ == '__main__':
     self = Loop()
-
-# plot data
-# plt.plot(numpydata)
-# plt.show()
-
-# close stream
-# stream.stop_stream()
-# stream.close()
-# p.terminate()
-
-# Open the device in nonblocking capture mode. The last argument could
-# just as well have been zero for blocking mode. Then we could have
-# left out the sleep call in the bottom of the loop
-# inp = alsaaudio.PCM(alsaaudio.PCM_CAPTURE,alsaaudio.PCM_NONBLOCK)
-
-# Set attributes: Mono, 8000 Hz, 16 bit little endian samples
-# inp.setchannels(1)
-# inp.setrate(8000)
-# inp.setformat(alsaaudio.PCM_FORMAT_S16_LE)
-
-# The period size controls the internal number of frames per period.
-# The significance of this parameter is documented in the ALSA api.
-# For our purposes, it is suficcient to know that reads from the device
-# will return this many frames. Each frame being 2 bytes long.
-# This means that the reads below will return either 320 bytes of data
-# or 0 bytes of data. The latter is possible because we are in nonblocking
-# mode.
-# inp.setperiodsize(160)
-
-# while True:
-    # Read data from device
-# l,data = inp.read()
-    # if l:
-        # Return the maximum of the absolute value of all samples in a fragment.
-        # print audioop.max(data, 2)
-    # time.sleep(.001)
-# mpg123 -w foo.wav foo.mp3
-# ffmpeg -i foo.mp3 -vn -acodec pcm_s16le -ac 1 -ar 8000 -f wav foo.wav
-
-# import sounddevice as sd
-# fs = 8000
-# sd.play(data, fs)
-
-# sound_clip, s = librosa.load(fn, sr=8000)
