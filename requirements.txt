@@ -45,7 +45,7 @@ Pygments==2.2.0
 pyparsing==2.2.0
 python-dateutil==2.7.3
 pytz==2018.4
-PyYAML==3.12
+PyYAML==5.4
 requests==2.18.4
 resampy==0.2.0
 scandir==1.7
